@@ -1,13 +1,21 @@
- <!DOCTYPE html>
+
+
 <html>
-<head>
-<title>Steembuy</title>
-</head>
-<body>
-<script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
-<script>
- steem.api.getAccounts(['ned']);
-document.write(Array(1));
-</script>
-</body>
-</html> 
+    <head>
+        <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+        <script>
+            steem.api.getAccounts(['money-dreamer'], function(err, response){
+                    //console.log(err, response);
+                document.getElementById("name").innerHTML = response[0]['name'];
+                document.getElementById("balance").innerHTML = response[0]['balance'];
+                document.getElementById("created").innerHTML = response[0]['created'];
+            });
+        </script>
+    </head>
+    <body>
+        Hello <span id="name">Steem</span>!
+        <div>You have <span id="balance">0 Steem</span>.</div>
+        <div>Your account was created on <span id="created">2000-01-01T00:00:00</span>.</div>
+    </body>
+</html>
+
